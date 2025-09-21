@@ -5,6 +5,7 @@ TEST_NAME=$2
 PHORONIX=./phoronix-test-suite
 
 ${PHORONIX} install ${TEST_NAME} > "${RESULT_DIR}/install_${TEST_NAME}.txt"
+echo 3 > /proc/sys/vm/drop_caches
 mkdir /sys/fs/cgroup/phoronix
 
 echo $$ > /sys/fs/cgroup/phoronix/cgroup.procs
